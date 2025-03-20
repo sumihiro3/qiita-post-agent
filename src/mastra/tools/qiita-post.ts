@@ -1,6 +1,9 @@
 import { createTool } from '@mastra/core/tools';
 import { z } from 'zod';
 import { QiitaPostResponse } from '@/types/qiita';
+import { createLogger } from '@mastra/core/logger';
+
+const logger = createLogger({ name: "GetQiitaPostTool", level: "debug" });
 
 /**
  * Qiita API を使用して、指定の記事内容を取得するツール
@@ -38,6 +41,7 @@ export const getQiitaPostTool = createTool({
  * @returns 記事の詳細
  */
 const getQiitaPost = async (postId: string): Promise<QiitaPostResponse> => {
+  logger.debug(`getQiitaPost tool called with postId: [${postId}]`);
   // Qiita API のベース URL
   const baseUrl = 'https://qiita.com/api/v2';
 
@@ -54,7 +58,7 @@ const getQiitaPost = async (postId: string): Promise<QiitaPostResponse> => {
     headers,
   });
   const postData = (await postResponse.json()) as QiitaPostResponse;
-  console.log(`postData: ${JSON.stringify(postData)}`);
+  logger.debug(`postData: ${JSON.stringify(postData)}`);
   return postData;
 };
 

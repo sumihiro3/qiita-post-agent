@@ -1,7 +1,8 @@
 import { openai } from '@ai-sdk/openai';
 import { Agent } from '@mastra/core/agent';
 import { weatherTool } from '../tools';
-import { getQiitaPostTool } from '../tools/qiita-post';
+
+export * from './qiita-post';
 
 export const weatherAgent = new Agent({
   name: 'Weather Agent',
