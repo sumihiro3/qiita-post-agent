@@ -36,6 +36,10 @@ yarn install
 yarn dev
 ```
 
+### 3. Open Mastra Playground and run the agent
+
+Open `[Mastra Playground](http://localhost:4111/) and try the agent!
+
 ## Tech Stack
 
 - TypeScript
